@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "react-app",
-=======
   "name": "my-app",
->>>>>>> 2cc6204 (Creando componentes para los productos)
   "version": "0.1.0",
   "private": true,
   "dependencies": {

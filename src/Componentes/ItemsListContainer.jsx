@@ -1,8 +1,10 @@
 import Item from "./Item"
-import productsData from "../productsData"
+import {products} from "../productsData"
+import React from "react"
+import "./Item.css"
 export default function ItemsListContainer (props) {
-  const products = productsData.products.map(product=>{
-    const {id, name, price, picture, description} = product
+  const items = products.map(product=>{
+    const {id, name, price, picture, description,stock} = product
     return (
       <Item 
       id={id} 
@@ -10,6 +12,7 @@ export default function ItemsListContainer (props) {
       price={price} 
       picture={picture} 
       description={description}
+      stock={stock}
       key={id}
       />
     )
@@ -17,8 +20,8 @@ export default function ItemsListContainer (props) {
   return(
     <>
       <h1 className="text-center">{props.greetings}</h1>
-      <div className="card-group row-cols-4 offset-2">
-        {products}
+      <div className="card-group row-cols-xl-4 row-cols-m-3 row-cols-sm-2 row-cols-1 gap-3 p-3 gap-sm-2 justify-content-center">
+        {items}
       </div>
     </>
   )

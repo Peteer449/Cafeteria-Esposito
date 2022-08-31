@@ -4,7 +4,7 @@ import { useEffect,useState } from "react"
 
 const getItem = (check) => {
   return new Promise((res,rej)=>{
-    if(check){res(productsData)}
+    if(check){res(productsData.filter(product=>product.name==="Torta brownie"))}
     else{rej("Acceso denegado")}
   })
 }
@@ -19,7 +19,8 @@ export default function ItemDetailContainer(){
   return(
     <>
       <div className="item--detail">
-        <ItemDetail products={products}/>
+      {products.map((product,index)=>{
+        return <ItemDetail productsMaped={product} key={index} />})}
       </div>
     </>
   )

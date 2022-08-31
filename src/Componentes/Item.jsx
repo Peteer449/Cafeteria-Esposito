@@ -1,26 +1,18 @@
 import "./Item.css"
-import ItemCount from "./ItemCount"
 export default function Item({productsMaped}){
-  const {name,price,picture,description,stock,index}=productsMaped
+  const {name,price,picture,index}=productsMaped
   return(
     <>
-      <div className={ stock<1?"col without-stock" : "col"} key={index}>
+      <div className="col" key={index}>
         <div className="card" id="item">
           <img src={picture} className="card-img-top" alt={name} />
-          <div className="card-right">
-            <div className="card-body">
-              <h5 className="card-title">{name}</h5>
-              <p className="card-text">{description}</p>
-            </div>
-            <div className="card-footer">
-              <div className="d-flex">
-                <p className="text-muted flex-grow-1">${price}</p>
-                <p className="text-muted">Stock: {stock}</p>
-              </div>
-              <ItemCount
-              stock={stock}
-              onAdd=""
-              />
+          <div className="card-body">
+            <h5 className="card-title text-center fs-4">{name}</h5>
+          </div>
+          <div className="card-footer">
+            <div className="d-flex">
+              <small className="text-muted flex-grow-1 align-self-center fs-6">${price}</small>
+              <button className="btn btn-primary">Ver mas</button>
             </div>
           </div>
         </div>

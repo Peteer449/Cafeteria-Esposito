@@ -16,21 +16,21 @@ export const productsData=[
     stock:2
   },
   { 
-    name:"Red velvet",
+    name:"Tarta de frutilla",
     price:720,
     picture:"/images/tortaFrutilla.jpg",
     description:"Bizcocho de vainilla con cacao y crema dulce de queso",
     stock:0
   },
   {
-    name:"Red velvet",
+    name:"Torta mousse",
     price:720,
     picture:"/images/tortaMousse.jpg",
     description:"Bizcocho de vainilla con cacao y crema dulce de queso",
     stock:0
   },
   {
-    name:"Red velvet",
+    name:"Tarta de coco",
     price:720,
     picture:"/images/tartaCoco.jpg",
     description:"Bizcocho de vainilla con cacao y crema dulce de queso",
@@ -53,7 +53,7 @@ export function ItemsListContainer (props) {
   return(
     <>
     <h1 className="text-center">{props.greetings}</h1>
-      <div className="card-group row-cols-xl-4 row-cols-m-3 row-cols-sm-2 row-cols-1 gap-3 p-3 gap-sm-2 justify-content-center">
+      <div className="card-group row-cols-xl-6 row-cols-m-5 row-cols-sm-4 row-cols-2 gap-3 p-3 gap-sm-2 justify-content-center">
         <ItemList products={products}/>
       </div>
     </>

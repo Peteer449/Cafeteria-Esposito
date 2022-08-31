@@ -1,38 +1,38 @@
 import ItemList from "./ItemList"
 import {useState,useEffect} from "react"
-const productsData=[
+export const productsData=[
   {
     name:"Torta brownie",
     price:720,
-    picture:"...",
+    picture:"/images/tortaBrownie.jpg",
     description:"Base de brownie decorada con dulce de leche y merengue italiano brûlee.",
     stock:3
   },
   {
     name:"Torta oreo",
     price:720,
-    picture:"...",
+    picture:"/images/cheesecakeOreo.jpg",
     description:"3 pisos de oreos humedas, con capas de dulce de leche y queso crema, terminada con una gache de chocolate",
     stock:2
   },
   { 
     name:"Red velvet",
     price:720,
-    picture:"...",
+    picture:"/images/tortaFrutilla.jpg",
     description:"Bizcocho de vainilla con cacao y crema dulce de queso",
     stock:0
   },
   {
     name:"Red velvet",
     price:720,
-    picture:"...",
+    picture:"/images/tortaMousse.jpg",
     description:"Bizcocho de vainilla con cacao y crema dulce de queso",
     stock:0
   },
   {
     name:"Red velvet",
     price:720,
-    picture:"...",
+    picture:"/images/tartaCoco.jpg",
     description:"Bizcocho de vainilla con cacao y crema dulce de queso",
     stock:0
   }
@@ -43,14 +43,13 @@ function checkPromise(check){
     else{rej("Acceso denegado")}
   })
 }
-export default function ItemsListContainer (props) {
+export function ItemsListContainer (props) {
   const [products,setProducts] = useState([])
   useEffect(()=>{
     checkPromise(true)
       .then(data=>{setProducts(data)})
       .catch(error=>console.error(error))
   },[])
-  console.log("ItemListContainer",products)
   return(
     <>
     <h1 className="text-center">{props.greetings}</h1>

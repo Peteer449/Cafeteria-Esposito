@@ -3,8 +3,7 @@ export default function ItemList(props){
   return(
     <>
       {props.products.map((product,index)=>{
-        product.index=index
-        return <Item productsMaped={product}  />})}
+        return <Item productsMaped={product} key={index} />})}
     </>
   )
 }

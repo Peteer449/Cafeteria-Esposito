@@ -13,7 +13,7 @@ const navbarLinks=[
   },
   {
     section:"Galeria",
-    active:false,
+    active:true,
     link:"/galeria"
   },
   {

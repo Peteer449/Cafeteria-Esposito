@@ -20,7 +20,7 @@ export default function Home(){
             <img src="/images/cheesecakeOreo.jpg" className="d-block" alt="..." />
             <div className="carousel-caption d-none d-md-block">
               <h5>Galeria</h5>
-              <Link to={"/productos"}><button className="btn btn-primary">Ver mas</button></Link>
+              <Link to={"/galeria"}><button className="btn btn-primary">Ver mas</button></Link>
             </div>
           </div>
         </div>

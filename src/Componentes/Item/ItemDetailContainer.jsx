@@ -13,7 +13,6 @@ const getItem = (check) => {
 
 export default function ItemDetailContainer(){
   const  info = useParams()
-  console.log(info)
   const [products,setProducts] = useState([])
   useEffect(()=>{
     getItem(true)

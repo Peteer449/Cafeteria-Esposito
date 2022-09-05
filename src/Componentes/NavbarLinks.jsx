@@ -1,23 +1,25 @@
+import { Link } from "react-router-dom"
+
 const navbarLinks=[
   {
     section:"Inicio",
     active:true,
-    link:"#"
+    link:"/"
   },
   {
     section:"Productos",
-    active:false,
-    link:"#"
+    active:true,
+    link:"/productos"
   },
   {
     section:"Galeria",
     active:false,
-    link:"#"
+    link:"/galeria"
   },
   {
     section:"Sobre nosotros",
-    active:true,
-    link:"#"
+    active:false,
+    link:"/sobreNosotros"
   }
 ]
 
@@ -27,8 +29,8 @@ const navbarLinks=[
 export default function NavbarLink(){
   const linksMaped=navbarLinks.map((links,index)=>
     <li className="nav-item col-6 col-md-3 text-center" key={index}>
-      <a className={links.active?"nav-link active overflow-visible":"nav-link disabled"} href={links.link}>{links.section}
-      </a>
+      <Link className={links.active?"nav-link active overflow-visible":"nav-link disabled"} to={links.link}>{links.section}
+      </Link>
     </li>
   )
     return(

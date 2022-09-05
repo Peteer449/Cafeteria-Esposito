@@ -1,9 +1,9 @@
 import ItemCount from "./ItemCount"
 export function ItemDetail({productsMaped}){
-  const {name,price,picture,description,stock,index}=productsMaped
+  const {name,price,picture,description,stock}=productsMaped
 return(
   <>
-    <div className={ stock<1?"col without-stock" : "col"} key={index}>
+    <div className={ stock<1?"col without-stock" : "col"}>
       <div className="card" id="item">
         <img src={picture} className="rounded-start border" alt={name} />
         <div className="card-right rounded-end border">

@@ -1,27 +1,28 @@
 import { productsData } from "./ItemsListContainer"
 import { ItemDetail } from "./ItemDetail"
 import { useEffect,useState } from "react"
+import { useParams } from "react-router-dom"
+
 
 const getItem = (check) => {
   return new Promise((res,rej)=>{
-    if(check){res(productsData.filter(product=>product.name==="Torta brownie"))}
+    if(check){res(productsData)}
     else{rej("Acceso denegado")}
   })
 }
 
 export default function ItemDetailContainer(){
+  const  info = useParams()
+  console.log(info)
   const [products,setProducts] = useState([])
   useEffect(()=>{
     getItem(true)
-      .then(data=>{setProducts(data)})
+      .then(data=>{setProducts(data.find(product=>product.id==info.id))})
       .catch(error=>console.error(error))
   },[])
   return(
-    <>
-      <div className="item--detail">
-      {products.map((product,index)=>{
-        return <ItemDetail productsMaped={product} key={index} />})}
-      </div>
-    </>
+    <div className="item--detail">
+      <ItemDetail productsMaped={products}/>
+    </div>
   )
 }

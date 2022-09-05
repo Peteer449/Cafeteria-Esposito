@@ -2,6 +2,7 @@ import ItemList from "./ItemList"
 import {useState,useEffect} from "react"
 export const productsData=[
   {
+    id:1,
     name:"Torta brownie",
     price:720,
     picture:"/images/tortaBrownie.jpg",
@@ -9,6 +10,7 @@ export const productsData=[
     stock:3
   },
   {
+    id:2,
     name:"Torta oreo",
     price:720,
     picture:"/images/cheesecakeOreo.jpg",
@@ -16,6 +18,7 @@ export const productsData=[
     stock:2
   },
   { 
+    id:3,
     name:"Tarta de frutilla",
     price:720,
     picture:"/images/tortaFrutilla.jpg",
@@ -23,6 +26,7 @@ export const productsData=[
     stock:0
   },
   {
+    id:4,
     name:"Torta mousse",
     price:720,
     picture:"/images/tortaMousse.jpg",
@@ -30,6 +34,7 @@ export const productsData=[
     stock:0
   },
   {
+    id:5,
     name:"Tarta de coco",
     price:720,
     picture:"/images/tartaCoco.jpg",
@@ -53,7 +58,7 @@ export function ItemsListContainer (props) {
   return(
     <>
     <h1 className="text-center">{props.greetings}</h1>
-      <div className="card-group row-cols-xl-6 row-cols-m-5 row-cols-sm-4 row-cols-2 gap-3 p-3 gap-sm-2 justify-content-center">
+      <div className="card-group row-cols-xl-6 row-cols-m-5 row-cols-sm-4 row-cols-1 gap-3 p-3 gap-sm-2 justify-content-center">
         <ItemList products={products}/>
       </div>
     </>

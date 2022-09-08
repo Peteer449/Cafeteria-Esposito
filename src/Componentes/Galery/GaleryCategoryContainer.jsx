@@ -21,9 +21,11 @@ export default function GaleryCategoryContainer(){
       .catch(error=>console.error(error))
   },[info])
   return(
-    <div className="item--detail">
-      <GaleryDropdown/>
+  <>
+    <GaleryDropdown/>
+    <div className="card-group row-cols-xl-6 row-cols-md-5 row-cols-sm-4 row-cols-2 gap-3 p-3 gap-sm-2 justify-content-center text-center">
       <GaleryList pictures={products}/>
     </div>
+  </>
   )
 }

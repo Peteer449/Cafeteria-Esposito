@@ -48,7 +48,7 @@ function checkPromise(check){
     else{rej("Acceso denegado")}
   })
 }
-export function ItemsListContainer (props) {
+export function ItemsListContainer () {
   const [products,setProducts] = useState([])
   useEffect(()=>{
     checkPromise(true)

@@ -1,23 +1,10 @@
 import ItemCount from "./ItemCount"
-import Toastify from 'toastify-js'
+import { useContext } from "react";
+import { CartContext } from "../Context/CartContext";
 
 export function ItemDetail({productsMaped}){
   const {name,price,picture,description,stock}=productsMaped
-  function onAdd(cant,setVisibility){
-    Toastify({
-      text: `Se ${cant===1?"agrego":"agregaron"} ${cant} al carrito`,
-      duration: 3000,
-      newWindow: true,
-      gravity: "bottom",
-      position: "right",
-      stopOnFocus: true,
-      style: {
-        background: "linear-gradient(90deg, rgba(251,207,79,1) 0%, rgba(202,152,171,1) 100%)",
-      },
-      onClick: function(){}
-    }).showToast();
-    setVisibility(true)
-  }
+  const cart = useContext(CartContext)
 return(
   <>
     <div className="card mb-3">
@@ -36,8 +23,9 @@ return(
                 <p className="text-muted">Stock: {stock}</p>
               </div>
               <ItemCount
+              item={productsMaped}
               stock={stock}
-              onAdd={onAdd}
+              onAdd={cart.addItem}
               />
             </div>
         </div>

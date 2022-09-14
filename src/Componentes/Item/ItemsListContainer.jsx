@@ -23,7 +23,7 @@ export const productsData=[
     price:720,
     picture:"/images/tortaFrutilla.jpg",
     description:"Bizcocho de vainilla con cacao y crema dulce de queso",
-    stock:0
+    stock:5
   },
   {
     id:4,
@@ -31,7 +31,7 @@ export const productsData=[
     price:720,
     picture:"/images/tortaMousse.jpg",
     description:"Bizcocho de vainilla con cacao y crema dulce de queso",
-    stock:0
+    stock:8
   },
   {
     id:5,
@@ -39,7 +39,7 @@ export const productsData=[
     price:720,
     picture:"/images/tartaCoco.jpg",
     description:"Bizcocho de vainilla con cacao y crema dulce de queso",
-    stock:0
+    stock:4
   }
 ]
 function checkPromise(check){

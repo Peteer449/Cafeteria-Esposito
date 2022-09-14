@@ -1,10 +1,7 @@
 import ItemCount from "./ItemCount"
-import { useContext } from "react";
-import { CartContext } from "../Context/CartContext";
 
 export function ItemDetail({productsMaped}){
   const {name,price,picture,description,stock}=productsMaped
-  const cart = useContext(CartContext)
 return(
   <>
     <div className="card mb-3">
@@ -25,7 +22,6 @@ return(
               <ItemCount
               item={productsMaped}
               stock={stock}
-              onAdd={cart.addItem}
               />
             </div>
         </div>

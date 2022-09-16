@@ -1,4 +1,3 @@
-import './App.css';
 import Navbar from "./NavAndFooter/Navbar"
 import Footer from './NavAndFooter/Footer';
 import { ItemsListContainer } from './Item/ItemsListContainer';

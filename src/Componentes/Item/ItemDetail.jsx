@@ -20,7 +20,7 @@ return(
                 <p className="text-muted">Stock: {stock}</p>
               </div>
               <ItemCount
-              item={productsMaped}
+              item={productsMaped.data}
               stock={stock}
               />
             </div>

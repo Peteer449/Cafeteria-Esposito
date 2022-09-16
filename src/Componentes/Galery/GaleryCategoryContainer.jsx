@@ -1,25 +1,31 @@
 import { useEffect,useState } from "react"
 import { useParams } from "react-router-dom"
 import GaleryList from "./GaleryList"
-import { allPictures } from "./GaleryContainter"
 import GaleryDropdown from "./GaleryDropdown"
-const getItem = (check) => {
-  return new Promise((res,rej)=>{
-    if(check){res(allPictures)}
-    else{rej("Acceso denegado")}
-  })
-}
+import { getDocs, collection } from "firebase/firestore"
+import { db } from "../../firebase/firebase"
 export default function GaleryCategoryContainer(){
   const  info = useParams()
   const [products,setProducts] = useState([])
+
   useEffect(()=>{
-    getItem(true)
-      .then(data=>{
-        const filteredProducts = data.filter(product=>product.category===info.category&&product)
-        setProducts(filteredProducts)
-      })
-      .catch(error=>console.error(error))
+    getItems()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[info])
+  function getItems() {
+  const galeryReff = collection(db,'galery')
+  getDocs(galeryReff)
+  .then(response=>{
+    const productsData = response.docs.map(doc => ({
+      data:doc.data(),
+      id:doc.id
+    }))
+    const filteredProducts = productsData.filter(product=>product.data.category===info.category&&product)
+    setProducts(filteredProducts)
+  })
+  .catch(error=>console.error(error))
+}
+
   return(
   <>
     <GaleryDropdown/>

@@ -1,7 +1,7 @@
 import "./Item.css"
 import {Link} from "react-router-dom"
 export default function Item({productsMaped}){
-  const {name,price,picture,index,id}=productsMaped
+  const {name,price,picture,index}=productsMaped.data
   return(
     <>
       <div className="col" key={index}>
@@ -13,7 +13,7 @@ export default function Item({productsMaped}){
           <div className="card-footer">
             <div className="d-flex">
               <small className="text-muted flex-grow-1 align-self-center fs-6">${price}</small>
-              <Link to={`/productos/${id}`}><button className="btn btn-primary"> Ver mas </button></Link>
+              <Link to={`/productos/${productsMaped.id}`}><button className="btn btn-primary"> Ver mas </button></Link>
             </div>
           </div>
         </div>

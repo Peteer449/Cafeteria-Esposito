@@ -44,14 +44,14 @@ const CartProvider = (props) => {
       }})
     setCart(newProducts)
   }
-  function addItem(item,cant,setVisibility){
-    let itemAmount={...item,cant}
-    if(!isInCart(item.id)){
+  function addItem(item,id,cant,setVisibility){
+    let itemAmount={...item,cant,id}
+    if(!isInCart(id)){
       setCart([...cart,itemAmount])
       toast(cant)
     }else{
       const newProducts = cart.map(product=>{
-        if(product.id===item.id){
+        if(product.id===id){
           if(product.cant+cant>product.stock){
             Toastify({
               text: `Llegaste al limite de stock NO se agrego al carrito`,
@@ -68,9 +68,9 @@ const CartProvider = (props) => {
             return product
           }
           const newProduct = {...product,cant:product.cant+cant}
+          toast(cant)
           return newProduct
         }else{
-          toast(cant)
           return product
         }
       })

@@ -3,8 +3,9 @@ import { getFirestore } from "firebase/firestore";
 
 
 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB9G9JDC6g7-es52CuQ1IqENGrUtGmizSc",
+  apiKey: process.env.REACT_APP_WEATHER_API_KEY,
   authDomain: "viavillate-54604.firebaseapp.com",
   projectId: "viavillate-54604",
   storageBucket: "viavillate-54604.appspot.com",

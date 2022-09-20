@@ -17,7 +17,7 @@ export default function ItemCount(props){
         <small className="flex-fill text-center fs-5">{howMuchToAdd}</small>
         <button className="btn btn-primary" disabled={howMuchToAdd===props.stock} onClick={handleHowMuchToAdd} value="+">+</button>
       </div>
-      <button className="btn btn-primary col-12 mt-2" disabled={howMuchToAdd===0} onClick={()=>addItem({...props.item},howMuchToAdd,setActivateCart)}>Agregar al carrito</button>
+      <button className="btn btn-primary col-12 mt-2" disabled={howMuchToAdd===0} onClick={()=>addItem({...props.item},props.itemId,howMuchToAdd,setActivateCart)}>Agregar al carrito</button>
       <Link to="/carrito"><button className={activateCart?"btn btn-primary col-12 mt-2":"invisible"}>Ir al carrito</button></Link>
     </>
   )

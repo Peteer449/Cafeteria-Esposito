@@ -6,7 +6,8 @@ import { db } from "../../firebase/firebase"
 
 export default function ItemDetailContainer(){
   const  info = useParams()
-  const [products,setProducts] = useState([])
+  const [products,setProducts] = useState({})
+  const [productId,setProductId]=useState()
   useEffect(()=>{
     getItem()
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -21,12 +22,13 @@ export default function ItemDetailContainer(){
       }))
       const productDetail = productsData.find(product=>product.id===info.id)
       setProducts(productDetail.data)
+      setProductId(productDetail.id)
     })
     .catch(error=>console.error(error))
   }
   return(
     <div className="item--detail">
-      <ItemDetail productsMaped={products}/>
+      <ItemDetail productsMaped={products} productId={productId}/>
     </div>
   )
 }

@@ -8,6 +8,7 @@ import { GaleryContainer } from './Galery/GaleryContainter';
 import GaleryCategoryContainer from './Galery/GaleryCategoryContainer';
 import { CartProvider } from './Context/CartContext';
 import { CartListContainer } from './Cart/CartListContainer';
+import Checkout from "./Cart/Checkout";
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
             <Route path="/galeria" element={<GaleryContainer/>}/>
             <Route path="/galeria/:category" element={<GaleryCategoryContainer/>}/>
             <Route path="/carrito" element={<CartListContainer/>}/>
+            <Route path="/checkout" element={<Checkout/>}/>
           </Routes>
           <Footer/>
         </BrowserRouter>

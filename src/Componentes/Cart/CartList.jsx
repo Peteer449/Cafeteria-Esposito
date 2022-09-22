@@ -1,10 +1,10 @@
 import Cart from "./Cart"
 import { useContext } from "react"
 import { CartContext } from "../Context/CartContext"
+import { Link } from "react-router-dom"
 export default function CartList(){
   const itemsCart = useContext(CartContext)
-  let total = 0
-
+  
   if(itemsCart.cart.length===0){
     return(
       <>
@@ -14,13 +14,15 @@ export default function CartList(){
   }
   return(
   <>
-    <button className="btn btn-danger col-7" onClick={()=>itemsCart.clear()}>Vaciar carrito</button>
+    <div className="col-8 justify-content-between d-flex">
+      <button className="btn btn-danger col-4" onClick={()=>itemsCart.clear()}>Vaciar carrito</button>
+      <Link to="/checkout" className="col-4"><button className="btn btn-primary col-12">Finalizar compra</button></Link>
+    </div>
     {itemsCart.cart.map((product,index)=>{
-      total += product.price * product.cant
       return <Cart productsMaped={product} key={index} />
     }
     )}
-    <div className="fs-4 text-center col-12 text-light">Tu total es ${total}</div>
+    <div className="fs-4 text-center col-12 text-light">Tu total es ${itemsCart.getTotal()}</div>
   </>
   )
 }

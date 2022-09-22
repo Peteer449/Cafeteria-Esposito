@@ -9,7 +9,7 @@ const CartProvider = (props) => {
     const newCart = cart.filter(product=>product.id!==id)
     setCart(newCart)
   }
-  function addOneItem(item){
+function addOneItem(item){
     const newProducts = cart.map(product=>{
       if(product.id===item.id){
         if(product.cant+1>product.stock){
@@ -98,10 +98,16 @@ const CartProvider = (props) => {
       onClick: function(){}
     }).showToast();
   }
+
+  function getTotal(){
+    let total = 0
+    cart.forEach((e) => total += (e.cant*e.price))
+    return total 
+  }
   
   return(
     <>
-      <CartContext.Provider value={{cart,deleteItem,addItem,clear,addOneItem,removeOneItem}}>
+      <CartContext.Provider value={{cart,deleteItem,addItem,clear,addOneItem,removeOneItem,getTotal}}>
         {props.children}
       </CartContext.Provider>
     </>

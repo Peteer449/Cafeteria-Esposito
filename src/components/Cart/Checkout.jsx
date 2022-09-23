@@ -1,5 +1,5 @@
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../../firebase/firebase";
+import { db,updateItem } from "../../utils/firebase";
 import {useState,useContext} from "react";
 import { CartContext } from "../Context/CartContext";
 
@@ -34,12 +34,14 @@ export default function Checkout(){
 
   function handleSubmit(event){
     event.preventDefault()
-    const items = cart.map(item=>({
+    const items = cart.map(item=>{
+      updateItem(item.id, item.stock-item.cant)
+      return({
       id:item.id,
       title:item.name,
       price:item.price,
       cant:item.cant
-    }))
+    })})
     const date = new Date()
     const total = getTotal()
     const data = {buyer,items,date,total}
@@ -52,7 +54,7 @@ export default function Checkout(){
     <h1>Tu orden de compra es: {orderId}</h1>):(
         <form onSubmit={handleSubmit} className="col-10 offset-1 text-light mt-5 mb-5">
           <div className="mb-3">
-            <label for="name" className="form-label ">Nombre y apellido</label>
+            <label htmlFor="name" className="form-label ">Nombre y apellido</label>
             <input
               required
               className="form-control"
@@ -65,7 +67,7 @@ export default function Checkout(){
               />
           </div>
           <div className="mb-3">
-            <label for="email" className="form-label">Direccion de Email</label>
+            <label htmlFor="email" className="form-label">Direccion de Email</label>
             <input
               required
               className="form-control"
@@ -78,7 +80,7 @@ export default function Checkout(){
               />
           </div>
           <div className="mb-3">
-            <label for="phone" className="form-label">Numero de telefono</label>
+            <label htmlFor="phone" className="form-label">Numero de telefono</label>
             <input
               required
               className="form-control"
@@ -98,7 +100,7 @@ export default function Checkout(){
               id="checkbox"
               required
               />  
-            <label for="checkbox" className="form-check-label">
+            <label htmlFor="checkbox" className="form-check-label">
               Estas de acuerdo con pasar a buscar los productos por el local cuando se indique que estan listos?
             </label>
           </div>

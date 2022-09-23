@@ -2,7 +2,7 @@ import { ItemDetail } from "./ItemDetail"
 import { useEffect,useState } from "react"
 import { useParams } from "react-router-dom"
 import { collection,getDocs } from "firebase/firestore"
-import { db } from "../../firebase/firebase"
+import { db } from "../../utils/firebase"
 
 export default function ItemDetailContainer(){
   const  info = useParams()

@@ -2,7 +2,7 @@ import { useEffect,useState } from "react"
 import GaleryList from "./GaleryList"
 import GaleryDropdown from "./GaleryDropdown"
 import { getDocs, collection } from "firebase/firestore"
-import { db } from "../../firebase/firebase"
+import { db } from "../../utils/firebase"
 
 export function GaleryContainer(){
   const [pictures,setPictures] = useState([])

@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, updateDoc, doc } from "firebase/firestore";
 
 
 
@@ -14,8 +14,13 @@ const firebaseConfig = {
   measurementId: "G-VVTHN7V4LM"
 };
 
+const updateItem = async (id,newStock) => {
+  const item=doc(db,"products",id)
+  await updateDoc(item,{stock:newStock})
+}
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
 
 
-export {db,app}
+export {db,app,updateItem}

@@ -1,7 +1,7 @@
 import ItemList from "./ItemList"
 import {useState,useEffect} from "react"
 import { collection,getDocs } from "firebase/firestore"
-import { db } from "../../firebase/firebase"
+import { db } from "../../utils/firebase"
 
 export function ItemsListContainer () {
   const [products,setProducts] = useState([])

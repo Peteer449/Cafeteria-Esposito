@@ -10,6 +10,7 @@ export function GaleryContainer(){
     getPictures()
   },[])
   
+  //Buscamos todas las fotos de firebase para agregarlas al useState
   function getPictures(){
     const galeryReff = collection(db,'galery')
     getDocs(galeryReff)

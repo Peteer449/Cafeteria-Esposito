@@ -6,6 +6,7 @@ export default function ItemCount(props){
   const [activateCart,setActivateCart] = useState(false)
   const {addItem} = useContext(CartContext)
 
+  //Revisamos que tecla se presiono para saber si agregar o sacar cantidad de howMuchToAdd
   function handleHowMuchToAdd(event){
     event.target.value === "-" & howMuchToAdd > 0  && setHowMuchToAdd(howMuchToAdd - 1)
     event.target.value === "+" &howMuchToAdd < props.stock && setHowMuchToAdd(howMuchToAdd + 1)

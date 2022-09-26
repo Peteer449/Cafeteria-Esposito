@@ -12,6 +12,8 @@ export default function ItemDetailContainer(){
     getItem()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
+
+  //Buscamos todos los productos en firebase y los asignamos al useState
   const getItem = () => {
     const productsReff = collection(db,'products')
     getDocs(productsReff)

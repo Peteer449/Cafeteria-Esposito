@@ -8,6 +8,8 @@ export function ItemsListContainer () {
   useEffect(()=>{
     getProducts()
   },[])
+
+  //Buscamos todos los productos en firebase y los asignamos al useState
   function getProducts(){
     const productsReff = collection(db,'products')
     getDocs(productsReff)

@@ -9,6 +9,8 @@ const CartProvider = (props) => {
     const newCart = cart.filter(product=>product.id!==id)
     setCart(newCart)
   }
+
+  //Funcion para los botones de agregar uno desde el carrito
 function addOneItem(item){
     const newProducts = cart.map(product=>{
       if(product.id===item.id){
@@ -44,6 +46,11 @@ function addOneItem(item){
       }})
     setCart(newProducts)
   }
+
+  //Revisamos si el item ya esta en el carrito con la funcion isInCart
+  //Si no esta en el carrito lo agregamos junto con la cantidad que agregaron
+  //Si ya esta en el carrito hacemos un map para saber que item es y revisamos que haya el stock necesario
+  //Luego lo agregamos al carrito y sumamos la cantidad agregada a la cantidad anterior
   function addItem(item,id,cant,setVisibility){
     let itemAmount={...item,cant,id}
     if(!isInCart(id)){
@@ -99,6 +106,7 @@ function addOneItem(item){
     }).showToast();
   }
 
+  //Buscamos el precio total del carrito
   function getTotal(){
     let total = 0
     cart.forEach((e) => total += (e.cant*e.price))

@@ -7,7 +7,7 @@ import Home from './Home';
 import { GaleryContainer } from './Galery/GaleryContainter';
 import GaleryCategoryContainer from './Galery/GaleryCategoryContainer';
 import { CartProvider } from './Context/CartContext';
-import { CartListContainer } from './Cart/CartListContainer';
+import CartList from './Cart/CartList';
 import Checkout from "./Cart/Checkout";
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
             <Route path='/productos/:id' element={<ItemDetailContainer/>}/>
             <Route path="/galeria" element={<GaleryContainer/>}/>
             <Route path="/galeria/:category" element={<GaleryCategoryContainer/>}/>
-            <Route path="/carrito" element={<CartListContainer/>}/>
+            <Route path="/carrito" element={<CartList/>}/>
             <Route path="/checkout" element={<Checkout/>}/>
           </Routes>
           <Footer/>

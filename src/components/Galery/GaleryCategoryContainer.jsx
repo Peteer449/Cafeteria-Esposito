@@ -12,6 +12,8 @@ export default function GaleryCategoryContainer(){
     getItems()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[info])
+
+  //Buscamos todas las fotos de firebase y las filtramos por categoria para subirlas al useState
   function getItems() {
   const galeryReff = collection(db,'galery')
   getDocs(galeryReff)
